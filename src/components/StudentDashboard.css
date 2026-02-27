@@ -1,0 +1,347 @@
+/* Modern Professional Student Dashboard Styles with Glassmorphism */
+
+.student-dashboard {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  position: relative;
+  padding-bottom: 2rem;
+  color: white;
+}
+
+/* Header */
+.dashboard-header {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header-left h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: white;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.header-left p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 4px 0 0 0;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: white;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.user-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.user-email {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.logout-btn {
+  background: #f43f5e;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #e11d48;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(244, 63, 94, 0.3);
+}
+
+.live-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+/* Main Content */
+.dashboard-main {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Dashboard Actions */
+.dashboard-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+}
+
+.new-complaint-btn {
+  background: white;
+  color: #1e293b;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.new-complaint-btn:hover {
+  background: #f1f5f9;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Stats Cards */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+}
+
+/* Complaint Section */
+.complaints-section {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+/* Complaint Cards */
+.complaints-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.complaint-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.complaint-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.card-header h3 {
+  color: white;
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.status-badge {
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-pending {
+  background: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.status-in_progress {
+  background: rgba(59, 130, 246, 0.2);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.status-resolved {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.complaint-desc {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.priority-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: white;
+  opacity: 0.8;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.date {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Form Modal (Simple version for matching style) */
+.form-container {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 2.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .header-right {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+}

@@ -1,0 +1,13 @@
+/* App layout */
+#root {
+  width: 100%;
+}
+
+.app-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-size: 1.125rem;
+  color: var(--color-text-muted, #64748b);
+}
