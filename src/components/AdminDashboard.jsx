@@ -5,6 +5,8 @@ import toast from 'react-hot-toast';
 import { useAuth } from '../context/AuthContext';
 import socketService from '../utils/socketService';
 import Button from './ui/Button';
+import AnalyticsDashboard from './AnalyticsDashboard';
+import Comments from './Comments';
 import './AdminDashboard.css';
 
 const AdminDashboard = () => {
@@ -16,6 +18,9 @@ const AdminDashboard = () => {
   const [filter, setFilter] = useState('all');
   const [statusFilter, setStatusFilter] = useState('all');
   const [priorityFilter, setPriorityFilter] = useState('all');
+  const [activeView, setActiveView] = useState('complaints'); // 'complaints', 'analytics', 'escalations'
+  const [selectedComplaint, setSelectedComplaint] = useState(null);
+  const [showComments, setShowComments] = useState(false);
 
   useEffect(() => {
     // Initialize socket connection for admin
@@ -204,6 +209,28 @@ const AdminDashboard = () => {
           <h1>Admin Dashboard</h1>
           <p>Manage and resolve all complaints</p>
         </div>
+        <div className="header-center">
+          <nav className="dashboard-nav">
+            <button
+              className={`nav-btn ${activeView === 'complaints' ? 'active' : ''}`}
+              onClick={() => setActiveView('complaints')}
+            >
+              Complaints
+            </button>
+            <button
+              className={`nav-btn ${activeView === 'analytics' ? 'active' : ''}`}
+              onClick={() => setActiveView('analytics')}
+            >
+              Analytics
+            </button>
+            <button
+              className={`nav-btn ${activeView === 'escalations' ? 'active' : ''}`}
+              onClick={() => setActiveView('escalations')}
+            >
+              Escalations
+            </button>
+          </nav>
+        </div>
         <div className="header-right">
           <div className="live-status">
             <div className="pulse-dot"></div>
@@ -213,7 +240,7 @@ const AdminDashboard = () => {
             <span className="user-avatar">{user?.name?.charAt(0).toUpperCase()}</span>
             <div>
               <p className="user-name">{user?.name}</p>
-              <p className="user-email">{user?.email}</p>
+              <p className="user-role">{user?.role}</p>
             </div>
           </div>
           <button className="logout-btn" onClick={handleLogout}>Logout</button>
@@ -222,6 +249,10 @@ const AdminDashboard = () => {
 
       {/* Main Content */}
       <main className="dashboard-main">
+        {activeView === 'analytics' && <AnalyticsDashboard />}
+        
+        {activeView === 'complaints' && (
+          <>
         {/* Analytics Cards */}
         {analytics && (
           <div className="analytics-grid">
@@ -446,6 +477,18 @@ const AdminDashboard = () => {
                 ))}
               </tbody>
             </table>
+          </div>
+        )}
+          </>
+        )}
+        
+        {activeView === 'escalations' && (
+          <div className="escalations-view">
+            <h2>Escalations Management</h2>
+            <p className="escalations-info">
+              View and manage escalated complaints. Escalations are automatically created for overdue complaints or can be manually requested by students.
+            </p>
+            {/* Escalations list will be implemented here */}
           </div>
         )}
       </main>

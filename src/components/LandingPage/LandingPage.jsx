@@ -96,14 +96,18 @@ const LandingPage = () => {
 
     return (
         <div className="landing-page">
-            {/* Hero Section with Parallax */}
+            {/* Hero Section with Real Hostel Background */}
             <section className="hero-section">
                 <motion.div
                     className="hero-background"
                     style={{ y: parallaxY }}
                 >
+                    <img 
+                        src={hostelBuilding} 
+                        alt="Hostel Building" 
+                        className="hero-bg-image"
+                    />
                     <div className="hero-gradient-overlay"></div>
-                    <div className="hero-mesh-gradient"></div>
                 </motion.div>
 
                 <motion.div
@@ -162,15 +166,27 @@ const LandingPage = () => {
                         className="hero-illustration"
                     >
                         <div className="floating-card card-1">
-                            <div className="card-icon">📋</div>
+                            <div className="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                    <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                            </div>
                             <div className="card-text">Quick Filing</div>
                         </div>
                         <div className="floating-card card-2">
-                            <div className="card-icon">⚡</div>
+                            <div className="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                                </svg>
+                            </div>
                             <div className="card-text">Fast Resolution</div>
                         </div>
                         <div className="floating-card card-3">
-                            <div className="card-icon">📊</div>
+                            <div className="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                                </svg>
+                            </div>
                             <div className="card-text">Real-time Tracking</div>
                         </div>
                     </motion.div>

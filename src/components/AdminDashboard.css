@@ -42,6 +42,64 @@
   gap: 2rem;
 }
 
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard-nav {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(15, 23, 42, 0.6);
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+.nav-btn {
+  padding: 0.6rem 1.25rem;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.nav-btn:hover {
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-btn.active {
+  background: #3b82f6;
+  color: white;
+}
+
+.user-role {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.escalations-view {
+  padding: 2rem;
+  text-align: center;
+}
+
+.escalations-view h2 {
+  color: #e2e8f0;
+  margin-bottom: 1rem;
+}
+
+.escalations-info {
+  color: #94a3b8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .user-info {
   display: flex;
   align-items: center;
@@ -379,34 +437,40 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 0.5rem;
-  min-width: 0;
+  min-width: 140px;
+  padding: 0.5rem 0;
 }
 
 .action-buttons {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 0.4rem;
+  gap: 0.5rem;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .action-btn-delete-row {
-  margin-top: 2px;
   padding: 6px 12px;
   font-size: 0.8rem;
+  width: 100%;
+  margin-top: 0.25rem;
 }
 
 .action-btn {
   background: rgba(255, 255, 255, 0.08);
   color: #e5e7eb;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 4px 10px;
-  border-radius: 999px;
+  padding: 6px 12px;
+  border-radius: 6px;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   white-space: nowrap;
-  transition: background 0.15s ease, transform 0.05s ease, border-color 0.15s ease;
+  transition: all 0.15s ease;
+  flex: 1;
+  min-width: 70px;
+  text-align: center;
 }
 
 .action-btn:hover:not(:disabled) {
@@ -460,9 +524,16 @@
 }
 
 .empty-icon {
-  font-size: 4rem;
-  margin-bottom: 1.5rem;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
   opacity: 0.5;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.empty-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .empty-state h3 {

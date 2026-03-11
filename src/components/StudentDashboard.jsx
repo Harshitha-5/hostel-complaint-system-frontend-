@@ -260,7 +260,7 @@ const StudentDashboard = () => {
             <p>Hostel: {user?.hostel || 'Main'}, Room: {user?.roomNo || 'N/A'}</p>
             {user?.role !== 'student' && (
               <p style={{ color: '#ef4444', marginTop: '0.5rem', fontWeight: 'bold' }}>
-                ⚠️ Your account is registered as <strong>{user?.role?.toUpperCase()}</strong>, not a student!
+                Your account is registered as <strong>{user?.role?.toUpperCase()}</strong>, not a student!
               </p>
             )}
           </motion.div>
@@ -440,7 +440,11 @@ const StudentDashboard = () => {
             <div className="loading">Loading your complaints...</div>
           ) : filteredComplaints.length === 0 ? (
             <div className="empty-state">
-              <div className="empty-icon">📋</div>
+              <div className="empty-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+              </div>
               <h3>No complaints {filter !== 'all' ? `with status "${filter.replace('_', ' ')}"` : 'yet'}</h3>
               <p>Start by filing your first complaint</p>
             </div>

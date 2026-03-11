@@ -19,17 +19,17 @@
     padding-bottom: 0.75rem;
     font-size: 1rem;
     font-family: inherit;
-    color: var(--color-gray-900);
+    color: #1a1a2e;
     background: transparent;
     border: none;
-    border-bottom: 2px solid var(--color-gray-300);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
     outline: none;
     transition: all 0.3s ease;
     box-sizing: border-box;
 }
 
 .custom-input:focus {
-    border-bottom-color: var(--color-primary, #F59E0B);
+    border-bottom-color: #E07B39;
 }
 
 .custom-input::placeholder {
@@ -45,12 +45,12 @@
     position: absolute;
     left: 1rem;
     top: 1.25rem;
-    color: var(--color-gray-500);
+    color: rgba(255, 255, 255, 0.6);
     font-size: 1rem;
     pointer-events: none;
     transition: all 0.3s ease;
     transform-origin: left top;
-    background: white;
+    background: transparent;
     padding: 0 0.25rem;
     max-width: calc(100% - 2rem);
 }
@@ -59,9 +59,9 @@
 .custom-input:not(:placeholder-shown) + .custom-input-label,
 .custom-input-label-float {
     transform: translateY(-1.75rem) scale(0.85);
-    color: var(--color-primary, #F59E0B);
+    color: #E07B39;
     font-weight: 500;
-    background: white;
+    background: transparent;
 }
 
 .custom-input-icon {

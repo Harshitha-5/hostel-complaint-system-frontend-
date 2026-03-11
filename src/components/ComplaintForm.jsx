@@ -68,12 +68,12 @@ const ComplaintForm = ({ onSubmitSuccess }) => {
     });
 
     const categories = [
-        { id: 'plumbing', label: 'Plumbing', icon: '🚰', desc: 'Leaks, taps, toilets' },
-        { id: 'electrical', label: 'Electrical', icon: '⚡', desc: 'Lights, fans, sockets' },
-        { id: 'furniture', label: 'Furniture', icon: '🪑', desc: 'Bed, chair, cupboard' },
-        { id: 'cleaning', label: 'Cleaning', icon: '🧹', desc: 'Dusting, floor, waste' },
-        { id: 'internet', label: 'Internet', icon: '📶', desc: 'WiFi, connection issues' },
-        { id: 'others', label: 'Others', icon: '🧩', desc: 'Miscellaneous issues' }
+        { id: 'plumbing', label: 'Plumbing', icon: 'plumbing', desc: 'Leaks, taps, toilets' },
+        { id: 'electrical', label: 'Electrical', icon: 'electrical', desc: 'Lights, fans, sockets' },
+        { id: 'furniture', label: 'Furniture', icon: 'furniture', desc: 'Bed, chair, cupboard' },
+        { id: 'cleaning', label: 'Cleaning', icon: 'cleaning', desc: 'Dusting, floor, waste' },
+        { id: 'internet', label: 'Internet', icon: 'internet', desc: 'WiFi, connection issues' },
+        { id: 'others', label: 'Others', icon: 'others', desc: 'Miscellaneous issues' }
     ];
 
     const priorities = [
@@ -261,7 +261,14 @@ const ComplaintForm = ({ onSubmitSuccess }) => {
                                     whileHover={{ y: -5 }}
                                     whileTap={{ scale: 0.95 }}
                                 >
-                                    <span className="cat-icon">{cat.icon}</span>
+                                    <span className="cat-icon">
+                                        {cat.icon === 'plumbing' && '🚰'}
+                                        {cat.icon === 'electrical' && '⚡'}
+                                        {cat.icon === 'furniture' && '🪑'}
+                                        {cat.icon === 'cleaning' && '🧹'}
+                                        {cat.icon === 'internet' && '📶'}
+                                        {cat.icon === 'others' && '📦'}
+                                    </span>
                                     <span className="cat-label">{cat.label}</span>
                                     <span className="cat-desc">{cat.desc}</span>
                                     {formData.category === cat.id && (
@@ -272,14 +279,14 @@ const ComplaintForm = ({ onSubmitSuccess }) => {
                         </div>
 
                         <div className="form-actions-right">
-                            <Button
+                            <button
+                                className="hc-form-btn hc-form-btn-primary"
                                 disabled={!formData.category}
                                 onClick={nextStep}
-                                icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 7l5 5m0 0l-5 5m5-5H6" strokeWidth="2" strokeLinecap="round" /></svg>}
-                                iconPosition="right"
                             >
                                 Continue
-                            </Button>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" style={{marginLeft: '8px'}}><path d="M13 7l5 5m0 0l-5 5m5-5H6" strokeWidth="2" strokeLinecap="round" /></svg>
+                            </button>
                         </div>
                     </motion.div>
                 )}
@@ -334,8 +341,8 @@ const ComplaintForm = ({ onSubmitSuccess }) => {
                         </div>
 
                         <div className="form-actions-between">
-                            <Button variant="ghost" onClick={prevStep}>Back</Button>
-                            <Button disabled={!formData.title || !formData.description} onClick={nextStep}>Almost there</Button>
+                            <button className="hc-form-btn hc-form-btn-secondary" onClick={prevStep}>Back</button>
+                            <button className="hc-form-btn hc-form-btn-primary" disabled={!formData.title || !formData.description} onClick={nextStep}>Almost there</button>
                         </div>
                     </motion.div>
                 )}
@@ -355,7 +362,12 @@ const ComplaintForm = ({ onSubmitSuccess }) => {
                         <div {...getRootProps()} className={`dropzone ${isDragActive ? 'active' : ''}`}>
                             <input {...getInputProps()} />
                             <div className="dropzone-content">
-                                <div className="dropzone-icon">📸</div>
+                                <div className="dropzone-icon">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                                        <circle cx="12" cy="13" r="4"/>
+                                    </svg>
+                                </div>
                                 <p>Drag & drop images here, or <span>click to browse</span></p>
                                 <span className="dropzone-hint">Supports JPG, PNG up to 5MB</span>
                             </div>
@@ -380,10 +392,10 @@ const ComplaintForm = ({ onSubmitSuccess }) => {
                         )}
 
                         <div className="form-actions-between">
-                            <Button variant="ghost" onClick={prevStep}>Back</Button>
-                            <Button loading={loading} variant="primary" size="lg" onClick={handleSubmit}>
+                            <button className="hc-form-btn hc-form-btn-secondary" onClick={prevStep}>Back</button>
+                            <button className="hc-form-btn hc-form-btn-primary" disabled={loading} onClick={handleSubmit}>
                                 {loading ? 'Uploading...' : 'Submit Complaint'}
-                            </Button>
+                            </button>
                         </div>
                     </motion.div>
                 )}
