@@ -30,7 +30,7 @@ const LandingPage = () => {
     useEffect(() => {
         const fetchStats = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/analytics/public-stats');
+                const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/analytics/public-stats`);
                 const data = await response.json();
                 if (data.success) {
                     setStats({

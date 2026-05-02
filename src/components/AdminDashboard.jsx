@@ -54,10 +54,10 @@ const AdminDashboard = () => {
     try {
       setLoading(true);
       const [complaintsRes, analyticsRes] = await Promise.all([
-        fetch('http://localhost:5000/api/admin/complaints', {
+        fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/complaints`, {
           headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
         }),
-        fetch('http://localhost:5000/api/admin/analytics', {
+        fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/analytics`, {
           headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
         })
       ]);
@@ -85,7 +85,7 @@ const AdminDashboard = () => {
         const num = Number(estimatedDays);
         if (!isNaN(num) && num >= 0) body.estimatedDays = num;
       }
-      const response = await fetch(`http://localhost:5000/api/admin/complaints/${complaintId}/status`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/complaints/${complaintId}/status`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -175,7 +175,7 @@ const AdminDashboard = () => {
       return;
     }
     try {
-      const response = await fetch(`http://localhost:5000/api/admin/complaints/${complaintId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/complaints/${complaintId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -390,7 +390,7 @@ const AdminDashboard = () => {
                         {complaint.proofImage && (
                           <div style={{ marginTop: '6px' }}>
                             <img
-                              src={`http://localhost:5000${complaint.proofImage}`}
+                              src={`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}${complaint.proofImage}`}
                               alt="Proof"
                               style={{ maxWidth: '80px', borderRadius: '4px' }}
                             />

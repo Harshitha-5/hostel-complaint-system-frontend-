@@ -95,7 +95,7 @@ const StudentDashboard = () => {
           : '';
 
       const response = await fetch(
-        `http://localhost:5000/api/student/complaints${query}`,
+        `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/student/complaints${query}`,
         {
           method: 'GET',
           headers: {
@@ -143,7 +143,7 @@ const StudentDashboard = () => {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/api/student/complaints/${complaintId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/student/complaints/${complaintId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -216,7 +216,7 @@ const StudentDashboard = () => {
     }
     try {
       setSubmittingFeedbackId(complaintId);
-      const response = await fetch(`http://localhost:5000/api/student/complaints/${complaintId}/feedback`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/student/complaints/${complaintId}/feedback`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -605,7 +605,7 @@ const StudentDashboard = () => {
                   {complaint.proofImage && (
                     <div style={{ marginTop: '0.75rem' }}>
                       <img
-                        src={`http://localhost:5000${complaint.proofImage}`}
+                        src={`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}${complaint.proofImage}`}
                         alt="Proof"
                         style={{ maxWidth: '100%', borderRadius: '8px' }}
                       />

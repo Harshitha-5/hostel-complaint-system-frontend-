@@ -135,7 +135,7 @@ const ComplaintForm = ({ onSubmitSuccess }) => {
                 throw new Error('Authentication failed. Please login again.');
             }
 
-            const response = await fetch('http://localhost:5000/api/student/complaints', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/student/complaints`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`

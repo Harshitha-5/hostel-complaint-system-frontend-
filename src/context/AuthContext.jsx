@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password, selectedRole) => {
     try {
-      const response = await fetch('http://localhost:5000/api/auth/login', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password, role: selectedRole }),
@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
       if (error.message === 'Failed to fetch' || error.name === 'TypeError') {
         return { 
           success: false, 
-          message: 'Cannot connect to server. Please make sure the backend server is running on http://localhost:5000' 
+          message: `Cannot connect to server. Please make sure the backend server is running on ${import.meta.env.VITE_API_URL || 'http://localhost:5000'}` 
         };
       }
       return { success: false, message: error.message || 'An unexpected error occurred' };
@@ -58,7 +58,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (name, email, password, selectedRole = 'student', roomNo, hostel) => {
     try {
-      const response = await fetch('http://localhost:5000/api/auth/register', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password, role: selectedRole, roomNo, hostel }),
@@ -88,7 +88,7 @@ export const AuthProvider = ({ children }) => {
       if (error.message === 'Failed to fetch' || error.name === 'TypeError') {
         return { 
           success: false, 
-          message: 'Cannot connect to server. Please make sure the backend server is running on http://localhost:5000' 
+          message: `Cannot connect to server. Please make sure the backend server is running on ${import.meta.env.VITE_API_URL || 'http://localhost:5000'}` 
         };
       }
       return { success: false, message: error.message || 'An unexpected error occurred' };
